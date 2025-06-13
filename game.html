@@ -15,7 +15,10 @@
     <div class="container">
         <h1>Jogo da forca</h1>
         <div class="row">
-            <h2 class="title">Futebol</h2>
+            <div class="title">
+                <img src="img/futebol.png" alt="bola de futebol" id="icon">
+                <h2 class="game-name">Futebol</h2>
+            </div>
             <img src="img/forca.png" alt="forca">
         </div> 
         <div class="centro">
@@ -29,8 +32,18 @@
                     <input type="text" class= "line">
                     <input type="submit" value="chutar" class="button">
                 </div>
-                <p>t</p>
+                <p id="wrong">t</p>
             </div>
+        </div>
+        <div class="lose">
+            <h3>PERDEU!!! QUER TENTAR OUTRA VEZ?</h3>
+            <p>A palavra era: <span>Palavra</span></p>
+            <button>Reiniciar</button>
+        </div>
+        <div class="win">
+             <h3>PARABENS!!! QUER TENTAR OUTRA VEZ?</h3>
+             <p>A palavra era: <span>Palavra</span></p>
+             <button>Reiniciar</button>
         </div>
     </div>
 </body>

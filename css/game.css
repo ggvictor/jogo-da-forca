@@ -8,7 +8,23 @@ body{
     color: white;
    
 }
-
+.title{
+    display: flex;
+    position: relative;
+}
+.title img{
+    height: 50px;
+}
+.title h2{
+    margin-top: 10px;
+    margin-right: 30px;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
+.container{
+    position: relative;
+}
 .container h1{
     text-align: center;
     margin: 20px;
@@ -30,13 +46,14 @@ body{
     align-items: center;
     flex-direction:column ;
     border:2px solid white;
+    margin-bottom:180px;
 }
 .row{
     display:flex;
     margin: 20px;
     gap: 10px;
 }
-.row .button{
+.win button, .lose button, .row .button{
     margin-top: 20px;
     background-color: #2D45BD;
     color: white;
@@ -45,7 +62,7 @@ body{
     cursor: pointer;
     transition: 1s;
 }
-.row .button:hover{
+.win button:hover, .lose button:hover, .row .button:hover{
     font-size: 15px;
     color:#2D45BD;
     background-color: white;
@@ -57,5 +74,26 @@ body{
     color: white;
     text-align: center;
     border-bottom:1px solid white;
-    width:100px;
+    width:30px;
+}
+.game p{
+    color:red;
+    margin-top: 80px;
+}
+.win,.lose{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 10, 10, 40%);
+    padding: 20px;
+    height: 350px;
+    width: 500px;
+    position: absolute;
+    top: 390px;
+    left: 400px;
+}
+.win{
+    display: none;
+    background-color: rgb(10, 255, 10, 40%);
 }
