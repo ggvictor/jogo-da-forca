@@ -77,8 +77,10 @@ body{
     width:30px;
 }
 .game p{
+    display: none;
     color:red;
     margin-top: 80px;
+
 }
 .win,.lose{
     display: none;
