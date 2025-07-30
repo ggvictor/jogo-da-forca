@@ -18,9 +18,30 @@ let nameGame = document.querySelector(".game-name")
 const inputsContainer = document.querySelector(".inputs")
 const chute = document.querySelector(".line")
 const button = document.querySelector(".button")
+const forcaImg = document.getElementById("forca-img");
 
-let palavrasPaises = paises;
-let paisesRandom = palavrasPaises[Math.floor(Math.random() * palavrasPaises.length)].toUpperCase();
+
+let lista;
+const modo = localStorage.getItem("modo")
+
+switch (modo) {
+    case "Paises":
+        lista = paises;
+        break;
+    case "Futebol":
+        lista = futebol;
+        break;
+    case "Filmes":
+        lista = filmes;
+        break;
+    case "Mangas":
+        lista = mangas;
+        break;
+    default:
+        lista = [];
+        break;
+}
+
 
 // funções 
 chute.maxLength = 1;
@@ -30,7 +51,7 @@ const change = ()=>{
 
 function mostrarCampo(){
     inputsContainer.innerHTML = "";
-    for (let i = 0; i < paisesRandom.length; i++) {
+    for (let i = 0; i < palavraSorteada.length; i++) {
         const input = document.createElement("input");
         input.type = "text";
         input.classList.add("letter")
@@ -38,6 +59,10 @@ function mostrarCampo(){
         inputsContainer.appendChild(input)
     }
 }
+
+let palavraSorteada = lista[Math.floor(Math.random() * lista.length)].toUpperCase();
+mostrarCampo();
+
 // eventos
 let tentativasErro = []
 let acertos = 0
@@ -45,9 +70,10 @@ let acertos = 0
 button.addEventListener('click',()=>{
     const letra = chute.value.toUpperCase()
     chute.value = "";
+    const palavraArray = palavraSorteada.split('');
 
     let acertou = false
-    [...paisesRandom].forEach((l,i) =>{
+    palavraArray.forEach((l,i) =>{
         if(l===letra){
             inputsContainer.children[i].value = letra
             acertos ++
@@ -58,14 +84,18 @@ button.addEventListener('click',()=>{
     if(!acertou && !tentativasErro.includes(letra)){
         tentativasErro.push(letra)
         document.getElementById("wrong").textContent = tentativasErro.join("");
+        forcaImg.src = `img/forca${tentativasErro.length}.png`
     }
-    if(acertos === paisesRandom.length){
+    if(acertos === palavraSorteada.length){
         document.querySelector(".win").style.display = "block";
     }
 
     if(tentativasErro.length >= 6){
         document.querySelector(".lose").style.display = "block";
-        document.querySelector(".lose span").textContent = paisesRandom
+        document.querySelector(".lose span").textContent = palavraSorteada
+    }
+    if(document.querySelector(".win").style.display === "block" || document.querySelector(".lose").style.display === "block"){
+        return;
     }
 })
 
@@ -83,10 +113,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.querySelectorAll("button").forEach(btn => {
+document.querySelectorAll(".win button, .lose button").forEach(btn => {
     btn.addEventListener("click", () => {
         location.reload(); // recarrega a página e começa de novo
     });
 });
 
-mostrarCampo();

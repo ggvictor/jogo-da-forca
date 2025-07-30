@@ -77,7 +77,7 @@ body{
     width:30px;
 }
 .game p{
-    display: none;
+    display: block;
     color:red;
     margin-top: 80px;
 
