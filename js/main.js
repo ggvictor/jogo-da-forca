@@ -67,6 +67,12 @@ mostrarCampo();
 let tentativasErro = []
 let acertos = 0
 
+chute.addEventListener('keyup',(e) =>{
+    if(e.key === "Enter" ){
+        e.preventDefault();
+        button.click();
+    }
+})
 button.addEventListener('click',()=>{
     const letra = chute.value.toUpperCase()
     chute.value = "";
@@ -97,6 +103,7 @@ button.addEventListener('click',()=>{
     if(document.querySelector(".win").style.display === "block" || document.querySelector(".lose").style.display === "block"){
         return;
     }
+
 })
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -115,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.querySelectorAll(".win button, .lose button").forEach(btn => {
     btn.addEventListener("click", () => {
-        location.reload(); // recarrega a página e começa de novo
+        window.location.href = "index.html";
     });
 });
 

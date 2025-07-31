@@ -67,7 +67,7 @@ body{
     color:#2D45BD;
     background-color: white;
 }
-.game input.line, .inputs input{
+.game input.line, div.inputs > .letter{
     border:none;
     outline:none;
     background-color: #181818;
@@ -75,6 +75,7 @@ body{
     text-align: center;
     border-bottom:1px solid white;
     width:30px;
+    margin-left: 4px;
 }
 .game p{
     display: block;
