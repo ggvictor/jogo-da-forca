@@ -100,3 +100,27 @@ body{
     display: none;
     background-color: rgb(10, 255, 10, 40%);
 }
+@media (max-width:650px){
+    .container h1{
+        font-size: 2rem;
+    }
+    #icon{
+        height: 30px;
+        margin-top: 15px;
+    }
+    .row h2{
+        margin-left: 25px;
+    
+    }
+    #forca-img{
+        height: 150px;
+    }
+    .game{
+    height: 250px;
+    width: 300px;
+}
+.win,.lose{
+    height: 250px;
+    width: 300px;
+}
+}

@@ -49,3 +49,15 @@ button > img{
     height: 40px;
 }
 
+@media (max-width:650px){
+    .container h2{
+    margin-left: 0px;
+    text-align: center;
+}
+body{
+     overflow-x: hidden;
+}
+button{
+    width: 350px;
+}
+}
